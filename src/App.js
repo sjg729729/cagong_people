@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
+
+import { IsLoginContext } from './context/IsLoginProvider';
+import LoginPage from './components/Login/LoginPage';
+import Header from './components/Header/Header';
+import Date from './components/Date/Date';
+import Cafe from './components/Cafe/Cafe';
 
 function App() {
+  const { isLogin } = useContext(IsLoginContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isLogin && (
+        <>
+          <Header />
+          <Date />
+          <Cafe />
+        </>
+      )}
+      {!isLogin && <LoginPage />}
     </div>
   );
 }
