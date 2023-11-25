@@ -1,8 +1,10 @@
+import starbucks from './img/starbucks.png';
+
 export const cafeList = [
   {
     id: '1',
     name: '스타벅스',
-    img: '',
+    img: starbucks,
   },
 
   {

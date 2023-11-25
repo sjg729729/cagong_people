@@ -7,7 +7,7 @@ import Date from './components/Date/Date';
 import Cafe from './components/Cafe/Cafe';
 
 function App() {
-  const { isLogin, setIsLogin } = useContext(IsLoginContext);
+  const { isLogin } = useContext(IsLoginContext);
 
   // if (localStorage.getItem('userInfo')) {
   //   setIsLogin(true);
