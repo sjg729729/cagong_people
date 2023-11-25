@@ -4,7 +4,17 @@ import { IsLoginContext } from '../../context/IsLoginProvider';
 function Header() {
   const { setIsLogin } = useContext(IsLoginContext);
 
+  let userInfo = {
+    name: '',
+    department: '',
+    studentId: '',
+  };
+  if (localStorage.getItem('userInfo')) {
+    userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  }
+
   const logOutHandler = () => {
+    localStorage.removeItem('userInfo');
     setIsLogin(false);
   };
 
@@ -14,7 +24,7 @@ function Header() {
         카공족
       </div>
       <div className="flex items-center text-sm font-bold mr-10 text-white">
-        소프트웨어학과 신진건
+        {`${userInfo.department} / ${userInfo.studentId} / ${userInfo.name}`}
       </div>
       <div className="flex items-center">
         <button

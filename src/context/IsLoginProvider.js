@@ -1,16 +1,13 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
 
-const userId = localStorage.getItem('id');
-const token = localStorage.getItem('token');
+const userInfo = localStorage.getItem('userInfo');
 
 export const IsLoginContext = createContext({
-  isLogin: userId !== null && token !== null ? true : false,
+  isLogin: userInfo !== null,
 });
 
 export function IsLoginProvider(props) {
-  const [isLogin, setIsLogin] = useState(
-    userId !== null && token !== null ? true : false
-  );
+  const [isLogin, setIsLogin] = useState(userInfo !== null);
 
   // prevent re-rendering all components using 'value' state
   const value = useMemo(() => ({ isLogin, setIsLogin }), [isLogin, setIsLogin]);

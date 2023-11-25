@@ -18,7 +18,7 @@ function LoginInput({ userInputHander }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    window.sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
+    window.localStorage.setItem('userInfo', JSON.stringify(userInfo));
     setIsLogin(true);
   };
 
