@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { IsLoginContext } from './context/IsLoginProvider';
 import LoginPage from './components/Login/LoginPage';
 import Header from './components/Header/Header';
-import Date from './components/Date/Date';
+import Today from './components/Date/Today';
 import Cafe from './components/Cafe/Cafe';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       {isLogin && (
         <>
           <Header />
-          <Date />
+          <Today />
           <Cafe />
         </>
       )}
